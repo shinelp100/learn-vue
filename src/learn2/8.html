@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <span>父子组件通信后data父组件数据得到的数据</span><input type="text" v-model="message.id"><br>
+    <span>父子组件通信后computed父组件数据得到的数据</span><input type="text" v-model="message.content"><br>
+    <span>父子组件通信后not-deal父组件数据得到的数据</span><input type="text" v-model="message.staticMessage"><br>
+    <div is="simple-counter" :my-message="message"></div>
+</div>
+<script>
+    /*组件中驼峰转化成中划线*/
+    Vue.component('simple-counter',{
+        props:['myMessage'],
+        data: function(){
+            return {myMessageData:this.myMessage.id + "lw"};
+        },
+        computed:{
+            myMessageDeal:function(){
+                return this.myMessage.content + "shinelp100";
+            }
+        },
+        template:`
+        <div>{{myMessageData}}<br>{{myMessageDeal}}<br>{{myMessage.staticMessage}}</div>
+       `
+    });
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            message:{
+                id:123,
+                content:'this is message',
+                staticMessage:'this is static message'
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div is="my-component" :id="message.id" :content="message.content"></div>
+</div>
+<script>
+    Vue.component('my-component',{
+        props:{
+            id:{
+                type:Number,
+                default:function(){
+                    return 100
+                }
+            },
+            content:{
+                type:String,
+                required:true
+            },
+            tips:{
+                type:Object,
+                default:function(){
+                    return {message:"hello shinelp100"}
+                }
+            },
+            propF:{
+                type:Boolean,
+                validator: function (value) {
+                    return value > 10
+                }
+            }
+        },
+        computed:{
+            myMessageDeal:function(){
+                return this.content + "lw";
+            }
+        },
+        template:`
+        <div>{{id}}--{{myMessageDeal}}--{{tips}}--{{propF}}</div>
+       `
+    });
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            message:{
+//                id:0,
+                content:'shinelp100'
+            }
+        }
+    });
+</script>
+</body>
+</html>

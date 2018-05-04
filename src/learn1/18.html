@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>learn1</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item in items" v-if="item['id']>10">
+            {{item}}
+        </li>
+    </ul>
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            items:[
+                {id:12,name:"shinelp100"},
+                {id:2,name:"liangwei"},
+                {id:19,name:"lw"},
+                {id:3,name:"yangjie"}
+            ]
+        }
+    })
+</script>
+</body>
+</html>

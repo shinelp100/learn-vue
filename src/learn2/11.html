@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>
+        sync<br>
+    父组件{{bar}}<br>
+    子组件<comp :foo.sync="bar">
+
+    </comp>
+    </div>
+    <div>
+        async<br>
+        父组件{{bar}}<br>
+        子组件<comp :foo="bar">
+
+    </comp>
+    </div>
+</div>
+<script>
+    Vue.component('comp',{
+        props:['foo'],
+        template:`<span v-on:click="changeBar">{{foo}}</span>`,
+        methods:{
+            changeBar:function(){
+                this.$emit('update:foo', "shinlw100")
+            }
+        }
+    });
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            bar:"shinelp100"
+        },
+        methods:{}
+    });
+</script>
+</body>
+</html>

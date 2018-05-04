@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div is="simple-counter"></div>
+    <div is="simple-counter"></div>
+    <div is="simple-counter"></div>
+</div>
+<script>
+    var data = {counter:0};
+    /*子组件*/
+    Vue.component('simple-counter',{
+        template:`
+        <button v-on:click="counter++">{{counter}}</button>
+       ` ,
+        data:function () {
+            return data;
+        }
+    });
+    var vm = new Vue({
+        el:"#app",
+    });
+    console.log(vm.$children)
+
+</script>
+</body>
+</html>

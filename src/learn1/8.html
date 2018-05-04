@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>learn1</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>message:{{message}}</p>
+    <p>reverse message:{{reverseMessage()}}</p>
+    <p>reverse message:{{now()}}</p>
+    <p>reverse message:{{reverseMessage1}}</p>
+    <p>reverse message:{{now1}}</p>
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            message:"Hello Vue"
+        },
+        methods:{
+            reverseMessage:function(){
+                return this.message.split("").reverse().join("");
+            },
+            now:function(){
+                return Date.now();
+            }
+        },
+        computed:{
+            reverseMessage1:function(){
+                return this.message.split("").reverse().join("");
+            },
+            now1: function(){
+                return Date.now();
+            }
+        }
+    })
+</script>
+</body>
+</html>

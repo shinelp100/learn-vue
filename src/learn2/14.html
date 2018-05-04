@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input is="custom-input" v-model="price">
+</div>
+<script>
+    Vue.component('custom-input',{
+        props:['value'],
+        template:`
+            <span>
+            $<input type="text"
+            ref="input"
+            :value="value"
+            @input="updateData($event.target.value)"
+            >
+</span>
+        `,
+        methods:{
+            updateData:function(value){
+                var formatData = value
+                    .trim()
+                    .slice(0,
+                        value.indexOf('.')===-1
+                            ? value.length
+                            : value.indexOf('.')+3
+                    );
+                if(formatData !== value){
+                    this.$refs.input.value = formatData;
+                }
+                this.$emit('input',Number(formatData));
+            }
+        }
+    });
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            price:100
+        },
+        methods:{}
+    });
+</script>
+</body>
+</html>

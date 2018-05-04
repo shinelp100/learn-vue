@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>learn1</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item of items">
+            {{parent}}-{{item.id}}-{{item.content}}
+        </li>
+    </ul>
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            parent:"parents",
+            items:[
+                {id:"1",content:"shine"},
+                {id:"2",content:"100"},
+                {id:"3",content:"lw"}
+            ]
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>learn4</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="message">
+    <p>{{message}}</p>
+</div>
+<div class="simulate">
+    <input type="text" onchange="bind_data(this);" value="shinelp100">
+    <p id="msg">shinelp100</p>
+</div>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            message:"shinelp100"
+        }
+    });
+    function bind_data(that){
+        var msg = document.getElementById("msg");
+        msg.innerText = that.value;
+    }
+</script>
+</body>
+</html>

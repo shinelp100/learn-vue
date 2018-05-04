@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>learn1</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input @keyup.enter="warn('this is warn message',$event)" value="enter">
+    <!--<input @keyup.enter="submit">-->
+    <!--<div @keyup.ctrl="alert(1);">111</div>-->
+    <button @click.ctrl="onClick">A</button>
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+
+        },
+        methods:{
+            warn:function(message,event){
+                console.log(event);
+                if(event){event.preventDefault();}
+                alert(message);
+            },
+            onClick:function(){alert(1);},
+        }
+    })
+
+    Vue.config.devtools = true;
+</script>
+</body>
+</html>

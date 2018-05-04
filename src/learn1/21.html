@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>learn1</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <span>Multiline message is:</span>
+    <p style="white-space: pre-line;">{{ message }}</p>
+    <br>
+    <textarea v-model="message" placeholder="add multiple lines"></textarea>
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            message:""
+        },
+        methods:{
+        }
+    })
+
+    Vue.config.devtools = true;
+</script>
+</body>
+</html>

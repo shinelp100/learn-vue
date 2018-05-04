@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>learn1</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input v-model="todoMsg" v-on:keyup.enter="addTodoList" type="text" placeholder="enter you msg">
+    <ul>
+        <li is="todo-list"
+            v-for="(item,index) in todoList"
+            v-on:remove="todoList.splice(index,1)"
+            v-bind:data="item"
+            v-bind:keys="index"
+        ></li>
+    </ul>
+</div>
+<script>
+    Vue.component('todo-list',{
+        props:["data"],
+        template:`
+        <li>{{data.title}}&nbsp;<button @click="$emit('remove')">X</button></li>
+        `
+    });
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            todoMsg:"",
+            todoList:[
+                {id:1,title:"shinelp"},
+                {id:2,title:"100"},
+                {id:3,title:"lw"}
+            ],
+            todoNext:4
+        },
+        methods:{
+            addTodoList:function(){
+                if(this.todoMsg === "")return;
+                this.todoList.push({id:this.todoNext++,title:this.todoMsg});
+                this.todoMsg = "";
+            }
+        }
+    })
+</script>
+</body>
+</html>

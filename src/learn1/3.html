@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>learn1</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-for="item in items">
+        {{item.title}}
+    </p>
+</div>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            items:[
+                {title:"shinelp100"},
+                {title:"shinelp"},
+                {title:"100"}
+            ]
+        },
+        created:function(){
+            setTimeout(function(){
+                app.items.push({title:"联威"});
+//                app.items.pop();
+//                app.items.shift();
+//                app.items.unshift({title:"连给"})
+            },2000)
+        }
+    })
+</script>
+</body>
+</html>

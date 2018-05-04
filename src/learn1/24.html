@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>learn1</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <select name="" id="" v-model="selected">
+        <option value="11">11</option>
+        <option value="22">22</option>
+        <option value="33">33</option>
+        <option value="44">44</option>
+    </select>
+    <br>
+    <span>selected:{{selected}}</span>
+    <input
+            type="checkbox"
+            v-model="toggle"
+            v-bind:true-value="a"
+            v-bind:false-value="b"
+    >
+
+    <input v-model.lazy="msg" value="111">
+    <!--input框changed时才会变化-->
+    <input v-model.number="age" type="number">
+    <input v-model.trim="msg" value="aa">
+</div>
+
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            selected:'111',
+            toggle:'bb',
+            a:'aa',
+            b:'bb',
+            msg:'',
+            age:''
+        },
+        methods:{
+        }
+    })
+
+    Vue.config.devtools = true;
+</script>
+</body>
+</html>

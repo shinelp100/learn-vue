@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>learn1</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input id="checkbox1" type="checkbox" value="one" v-model="checkName">
+    <label for="checkbox1">one</label>
+    <input id="checkbox2" type="checkbox" value="two" v-model="checkName">
+    <label for="checkbox2">two</label>
+    <input id="checkbox3" type="checkbox" value="three" v-model="checkName">
+    <label for="checkbox3">three</label>
+    <br>
+    <span>{{checkName}}</span>
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            checkName:[]
+        },
+        methods:{
+        }
+    })
+
+    Vue.config.devtools = true;
+</script>
+</body>
+</html>

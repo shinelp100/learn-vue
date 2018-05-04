@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>learn1</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(value,key,index) in items">
+            {{value.firstName}}
+        </li>
+    </ul>
+    <button @click="add">add</button>
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            items:[
+                {firstName:"shinelp", lastName:"100", age:"26"},
+                {firstName:"lw", lastName:"100", age:"26"},
+                {firstName:"100", lastName:"100", age:"26"}
+            ]
+        },
+        methods:{
+            add:function(){
+                var arr = [{firstName:"yj", lastName:"100", age:"26"}];
+                this.items = this.items.concat(arr);
+            }
+        }
+    })
+</script>
+</body>
+</html>

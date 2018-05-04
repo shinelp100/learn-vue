@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>
+        父组件：
+        <br>
+        <input type="text" v-model="name"><br>
+        <input type="text" v-model="age">
+    </div>
+    <div is="child-comp" :name.sync="name" :age="age">
+    </div>
+</div>
+<script>
+    Vue.component('child-comp',{
+        props:['name','age'],
+        template:`
+            <div>
+                子组件：
+                <br>
+                <input type="text" v-model="name"/><br>
+                <input type="text" v-model="age">
+            </div>
+        `
+    });
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            name:"shinelp100",
+            age:25
+        },
+        methods:{}
+    });
+</script>
+</body>
+</html>

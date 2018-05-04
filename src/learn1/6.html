@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>learn4</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ol>
+        <todo-item v-for="item in msg" v-bind:todo="item" v-bind:aa="item.id" v-bind:key="item.id">{{item.id}}</todo-item>
+    </ol>
+</div>
+<script>
+    Vue.component("todo-item",{
+        props:["todo","aa"],
+        template:"<li v-bind:id='aa'>{{todo}}{{aa}}</li>"
+    });
+    var app = new Vue({
+        el: "#app",
+        data: {
+            msg:[
+                {id:"1",text:"shinelp"},
+                {id:"2",text:"100"},
+                {id:"3",text:"lw"}
+            ]
+        }
+    });
+</script>
+</body>
+</html>

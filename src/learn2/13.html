@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="name">
+    <input type="text" :value="name" @input="name = $event.target.value">
+    <div>{{name}}</div>
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            name:"shinelp100"
+        },
+        methods:{}
+    });
+</script>
+</body>
+</html>

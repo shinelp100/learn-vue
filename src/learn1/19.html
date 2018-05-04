@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>learn1</title>
+    <meta http-equiv="refresh" content="5;url='https://m.wangcaigu.com'">
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="warn('this is warning message',$event)">
+        Submit
+    </button>
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+
+        },
+        methods:{
+            warn:function(message,event){
+                console.log(event);
+                if(event){event.preventDefault();}
+                alert(message);
+            }
+        }
+    })
+
+    Vue.config.devtools = true;
+</script>
+</body>
+</html>
